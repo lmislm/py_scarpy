@@ -14,5 +14,15 @@ def get_page_resp(url):
         return None
 #print(get_page_resp(url))
 
-#soup = BeautifulSoup(get_page_resp(url), 'lxml')
+soup = BeautifulSoup(get_page_resp(url), 'lxml')
+# job_list = soup.select('div.new-dl-company > a')
+job_list = soup.select('div.new-dl-wrapper > div > dl')
+job_details = [i.get_text("|", strip=True) for i in job_list]
+print(job_details[0])
+     # print(jobnames)
+    # for jobname in zip(jobnames):
+    #     data = {
+    #         'name': jobname
+    #     }
+    #     yield data
 
